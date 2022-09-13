@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const MatchDetails = () => {
   const [data, setData] = useState([]);
+  let { id } = useParams();
   useEffect(() => {
     async function fetchData() {
-      let res = await fetch(
-        "https://rest.entitysport.com/v2/competitions/56606/squads/?token=ec471071441bb2ac538a0ff901abd249",
-        {
-          //   mode: "no-cors",
-        }
-      );
-      let data = await res.json();
-      setData(data.response.items);
-      console.log(data.response.items);
+      const url = `https://rest.entitysport.com/v2/competitions/${id}/squads/?token=ec471071441bb2ac538a0ff901abd249`;
+      let res = await fetch(url, {
+        mode: "no-cors",
+        headers: {
+          "content-type": "application/html",
+        },
+      });
+      //   let data = await res.json();
+      //   setData(data.response.items);
+      //   console.log(data.response.items);
+      console.log(res);
     }
     fetchData();
   }, []);

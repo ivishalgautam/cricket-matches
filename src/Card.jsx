@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Card = ({ data }) => {
   return (
     <CardContainer className="card">
-      <Link to={"/matchDetails"}>
+      <Link to={`/matchDetails/${data.match_id}`}>
         <Teams>
           <ul>
             <li>
