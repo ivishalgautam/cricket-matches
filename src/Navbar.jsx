@@ -1,10 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Navbar = () => {
   return (
     <Nav>
-      <div>Logo</div>
+      <Link
+        to="/"
+        style={{ textDecoration: "none", color: "white", fontSize: "1.5rem" }}
+      >
+        <span>Logo</span>
+      </Link>
       <button>Login</button>
     </Nav>
   );
